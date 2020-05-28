@@ -1,5 +1,6 @@
 package nl.hu.bep.model;
 
+import nl.hu.bep.model.personen.Eigenaar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

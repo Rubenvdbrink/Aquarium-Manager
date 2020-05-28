@@ -3,17 +3,17 @@ package nl.hu.bep.model;
 import nl.hu.bep.model.aquarium.Aquarium;
 import nl.hu.bep.model.aquarium.Toebehoren;
 import nl.hu.bep.model.bewoners.Bewoner;
+import nl.hu.bep.model.personen.Eigenaar;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class AquariumManager {
     private String installatienaam;
 
-    private ArrayList<Eigenaar> alleEigenaren;
-    private ArrayList<Toebehoren> alleToebehoren;
-    private ArrayList<Aquarium> alleAquaria ;
-    private ArrayList<Bewoner> alleBewoners;
+    private static ArrayList<Eigenaar> alleEigenaren;
+    private static ArrayList<Toebehoren> alleToebehoren;
+    private static ArrayList<Aquarium> alleAquaria;
+    private static ArrayList<Bewoner> alleBewoners;
 
     /**
      * Constructors
@@ -39,11 +39,16 @@ public class AquariumManager {
         this.installatienaam = installatienaam;
     }
 
-    public ArrayList<Eigenaar> getAlleEigenaren() { return alleEigenaren; }
+    public static ArrayList<Eigenaar> getAlleEigenaren() { return alleEigenaren; }
 
-    public ArrayList<Toebehoren> getAlleToebehoren() { return alleToebehoren; }
+    public static ArrayList<Toebehoren> getAlleToebehoren() { return alleToebehoren; }
 
-    public ArrayList<Aquarium> getAlleAquaria() { return alleAquaria; }
+    public static ArrayList<Aquarium> getAlleAquaria() { return alleAquaria; }
 
-    public ArrayList<Bewoner> getAlleBewoners() { return alleBewoners; }
+    public static ArrayList<Bewoner> getAlleBewoners() { return alleBewoners; }
+
+    /**
+     * Methods
+     */
+
 }

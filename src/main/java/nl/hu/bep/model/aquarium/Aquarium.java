@@ -1,5 +1,6 @@
 package nl.hu.bep.model.aquarium;
 
+import nl.hu.bep.model.AquariumManager;
 import nl.hu.bep.model.bewoners.Bewoner;
 
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class Aquarium {
         this.toebehoren = new ArrayList<>();
         this.bewoners = new ArrayList<>();
         this.ornamenten = new ArrayList<>();
+        AquariumManager.getAlleAquaria().add(this);
     }
 
     /**

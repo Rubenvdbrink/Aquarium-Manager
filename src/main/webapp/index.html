@@ -2,9 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Placeholder startpagina</title>
+    <title>Fishy System</title>
+    <link rel="icon" type="image/png" sizes="70x70" href="/ms-icon-70x70.png">
 </head>
 <body>
-<!-- your HTML starts here -->
+    <header>
+        <h1>Fishy System</h1>
+    </header>
+
+    <div id="logindiv">
+        <h2>Log in als gebruiker</h2>
+        <form id="loginform">
+            <input type="text" name = "username" />
+            <input type ="password" name = "password" />
+            <input type="button" value="login" id="login" />
+        </form>
+    </div>
+
+    <div id="registerdiv">
+        <h2>Registreer als eigenaar</h2>
+        <form id="registerform">
+            <input type="text" name = "username" />
+            <input type ="password" name = "password" />
+            <input type="button" value="register" id="register" />
+        </form>
+    </div>
+
+    <div id="links">
+        <a href="/restservices/aquarium/alleAquaria">admin</a>
+        <a href="/restservices/aquarium/alleAquaria">user</a>
+    </div>
+    <script src="assets/js/login.js"></script>
 </body>
 </html>

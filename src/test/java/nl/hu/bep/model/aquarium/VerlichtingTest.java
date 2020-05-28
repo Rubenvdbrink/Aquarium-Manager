@@ -1,6 +1,5 @@
 package nl.hu.bep.model.aquarium;
 
-import nl.hu.bep.model.Eigenaar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

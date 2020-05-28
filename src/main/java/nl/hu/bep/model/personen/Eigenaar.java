@@ -1,6 +1,7 @@
-package nl.hu.bep.model;
+package nl.hu.bep.model.personen;
 
 import nl.hu.bep.model.aquarium.Aquarium;
+import nl.hu.bep.model.AquariumManager;
 
 import java.util.ArrayList;
 
