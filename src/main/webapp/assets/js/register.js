@@ -1,4 +1,4 @@
-function register(event) {
+function register() {
     let formData = new FormData(document.querySelector("#registerform"));
     let encData =  new URLSearchParams(formData.entries());
 
@@ -8,7 +8,7 @@ function register(event) {
             else throw "Vul de velden correct in";
         })
         .then(MyJson => window.sessionStorage.setItem("myJWT", MyJson.JWT))
-        .catch(error => console.log(error));
+        .catch(console.log);
 }
 
 document.querySelector("#register").addEventListener("click", register);

@@ -36,11 +36,11 @@ public class AuthenticationResource {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response authenticateUserByPassword(@FormParam("username") String username,
                                                @FormParam("password") String password) {
-        System.out.println(username);
-        System.out.println(password);
+//        System.out.println(username);
+//        System.out.println(password);
         try {
             String role = MyUser.validateLogin(username, password);
-            System.out.println(role + "\n");
+//            System.out.println(role + "\n");
             if (role == null) {
                 throw new IllegalArgumentException();
             }
@@ -49,7 +49,6 @@ public class AuthenticationResource {
             SimpleEntry<String, String> JWT = new SimpleEntry<>("JWT", token);
             return Response.ok(JWT).build();
         } catch (JwtException | IllegalArgumentException e) {
-            System.out.println("exception");
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }
     }
@@ -62,14 +61,9 @@ public class AuthenticationResource {
                                @FormParam("password") String password,
                                @FormParam("voornaam") String voornaam,
                                @FormParam("achternaam") String achternaam) {
-        System.out.println(username);
-        System.out.println(password);
-        System.out.println(voornaam);
-        System.out.println(achternaam);
-
         try {
             if (username == null || password == null || voornaam == null || achternaam == null) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Voer alle velden in!");
             }
             new Eigenaar(username,password,voornaam,achternaam);
             String role = MyUser.validateLogin(username, password);

@@ -1,4 +1,4 @@
-function login(event) {
+function login() {
     let formData = new FormData(document.querySelector("#loginform"));
     let encData = new URLSearchParams(formData.entries());
 
@@ -8,7 +8,7 @@ function login(event) {
             else throw "Wrong username/password";
         })
         .then(myJson => window.sessionStorage.setItem("myJWT", myJson.JWT))
-        .catch(error => console.log(error));
+        .catch(console.log);
 }
 
 document.querySelector("#login").addEventListener("click", login);

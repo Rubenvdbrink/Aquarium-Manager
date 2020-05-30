@@ -9,6 +9,7 @@
 <body>
     <header>
         <h1 class="center">Fishy System</h1>
+        <img src="assets/images/fish.png" alt="big fish" class="center" width=10% height=10%>
     </header>
 
     <div id="logindiv">
@@ -19,9 +20,10 @@
             <input type="button" value="login" id="login" />
         </form>
     </div>
-    <hr>
+
     <div id="registerdiv">
         <h2>Registreer als eigenaar</h2>
+        <p>Gebruikersnaam moet uniek zijn!</p>
         <form id="registerform">
             <input type="text" name = "username" placeholder="gebruikersnaam"/>
             <input type ="password" name = "password" placeholder="wachtwoord"/>
@@ -30,20 +32,46 @@
             <input type="button" value="register" id="register" />
         </form>
     </div>
-    <hr>
+
     <div id="uitloggendiv">
         <h2>Uitloggen</h2>
         <input type="button" value="uitloggen" id="uitloggen" />
     </div>
-    <hr>
+
     <div id="bekijkaquariadiv">
         <h2>Bekijk eigen aquaria</h2>
-        <p id="alleaquaria">test</p>
+        <input type="button" value="Haal al uw aquaria informatie opnieuw op" id="alleaquariabutton" />
+        <div id="alleaquaria"></div>
     </div>
-    <hr>
+
+    <div id="Voeg aquarium toe">
+        <h2>Voeg aquarium toe</h2>
+        <p>Aquarium naam moet uniek zijn!</p>
+        <form id="addaquariumform">
+            <input type="text" name = "naam" placeholder="naam"/>
+            <input type="number" name = "lengte" placeholder="lengte"/>
+            <input type="number" name = "breedte" placeholder="breedte"/>
+            <input type="number" name = "hoogte" placeholder="hoogte"/>
+            <input type="text" name = "bodemsoort" placeholder="bodemsoort"/>
+            <input type="text" name = "watersoort" placeholder="watersoort"/>
+            <input type="button" value="maak aan" id="maakaan" />
+        </form>
+    </div>
+
+    <div id="removeaquarium">
+        <h2>Verwijder Aquarium</h2>
+        <form id="removeaquariumform">
+            <input type ="text" name = "naam" id="aquariumnaaminput" placeholder="naam van aquarium dat u wilt verwijderen"/>
+            <input type ="button" value="Verwijder Aquarium" id="verwijderaquarium" />
+        </form>
+    </div>
 
     <script src="assets/js/login.js"></script>
     <script src="assets/js/register.js"></script>
     <script src="assets/js/uitloggen.js"></script>
+    <script src="assets/js/alleaquaria.js"></script>
+    <script src="assets/js/addaquarium.js"></script>
+    <script src="assets/js/removeaquarium.js"></script>
+
 </body>
 </html>

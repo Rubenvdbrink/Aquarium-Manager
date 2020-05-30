@@ -60,6 +60,15 @@ public abstract class MyUser implements Principal {
         return null;
     }
 
+    @Override
+    public String toString() {
+        return "MyUser{" +
+                "username='" + username + '\'' +
+                ", plainpassword='" + plainpassword + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
+
     public static String validateLogin(String username, String password) {
         MyUser found = getUserByUsername(username);
         if (found!=null) {

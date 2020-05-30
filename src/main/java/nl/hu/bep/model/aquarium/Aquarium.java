@@ -92,4 +92,8 @@ public class Aquarium {
     public ArrayList<Bewoner> getBewoners() { return bewoners; }
 
     public ArrayList<Ornament> getOrnamenten() { return ornamenten; }
+
+    /**
+     * methods
+     */
 }

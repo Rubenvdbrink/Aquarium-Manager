@@ -17,7 +17,9 @@ public class MyContextListener implements ServletContextListener {
         AquariumManager aqua = new AquariumManager("aqua");
         Aquarium a1 = new Aquarium("Bikini Bottom", 50, 50, 50, "helemaal zand", "helemaal zout");
 
-        new Eigenaar("AquaRuben","1234", "ruben", "van den Brink");
+        Eigenaar e1 = new Eigenaar("AquaRuben","1234", "ruben", "van den Brink");
         new Beheerder("AquaAdmin", "1234", "henk", "tenk");
+
+        e1.addAquarium(a1);
     }
 }

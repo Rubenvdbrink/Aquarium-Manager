@@ -5,7 +5,7 @@ import nl.hu.bep.model.AquariumManager;
 
 import java.util.ArrayList;
 
-public class Eigenaar extends MyUser{
+public class Eigenaar extends MyUser {
     private String voornaam;
     private String achternaam;
 
@@ -16,13 +16,13 @@ public class Eigenaar extends MyUser{
      */
 
     public Eigenaar(String username, String plainpassword, String voornaam, String achternaam) {
-        super(username, plainpassword);
-        this.setVoornaam(voornaam);
-        this.setAchternaam(achternaam);
-        this.eigenAquaria = new ArrayList<>();
-        if(!AquariumManager.getAlleEigenaren().contains(this)) {
-            AquariumManager.getAlleEigenaren().add(this);
-        }
+            super(username, plainpassword);
+            this.setVoornaam(voornaam);
+            this.setAchternaam(achternaam);
+            this.eigenAquaria = new ArrayList<>();
+            if(!AquariumManager.getAlleEigenaren().contains(this)) {
+                AquariumManager.getAlleEigenaren().add(this);
+            }
     }
 
     /**
@@ -45,7 +45,18 @@ public class Eigenaar extends MyUser{
         this.achternaam = achternaam;
     }
 
+    public ArrayList<Aquarium> getEigenAquaria() { return eigenAquaria; }
+
+    /**
+     * Methods
+     */
+
     public boolean addAquarium(Aquarium aquarium) {
+        for (Aquarium aquari : this.eigenAquaria) {
+            if (aquari.getNaam().equals(aquarium.getNaam())) {
+                return false;
+            }
+        }
         if (!this.eigenAquaria.contains(aquarium)) {
             eigenAquaria.add(aquarium);
             return true;
@@ -53,5 +64,16 @@ public class Eigenaar extends MyUser{
         return false;
     }
 
-    public ArrayList<Aquarium> getEigenAquaria() { return eigenAquaria; }
+    public Aquarium getAquariumByName(String name) {
+        for (Aquarium aquarium : this.eigenAquaria) {
+            if (aquarium.getNaam().equals(name)) {
+                return aquarium;
+            }
+        }
+        return null;
+    }
+
+    public void removeAquarium(Aquarium aquarium) {
+        this.eigenAquaria.remove(aquarium);
+    }
 }
