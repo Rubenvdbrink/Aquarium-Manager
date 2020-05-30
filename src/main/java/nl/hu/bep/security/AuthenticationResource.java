@@ -4,7 +4,7 @@ import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
-import javassist.Loader;
+import nl.hu.bep.model.personen.Eigenaar;
 import nl.hu.bep.model.personen.MyUser;
 
 import javax.ws.rs.*;
@@ -12,7 +12,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.security.Key;
 import java.util.AbstractMap.SimpleEntry;
-import java.util.Arrays;
 import java.util.Calendar;
 
 @Path("/authentication")
@@ -32,6 +31,7 @@ public class AuthenticationResource {
     }
 
     @POST
+    @Path("/login")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response authenticateUserByPassword(@FormParam("username") String username,
@@ -51,6 +51,34 @@ public class AuthenticationResource {
         } catch (JwtException | IllegalArgumentException e) {
             System.out.println("exception");
             return Response.status(Response.Status.UNAUTHORIZED).build();
+        }
+    }
+
+    @POST
+    @Path("/register")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response registerEigenaar(@FormParam("username") String username,
+                               @FormParam("password") String password,
+                               @FormParam("voornaam") String voornaam,
+                               @FormParam("achternaam") String achternaam) {
+        System.out.println(username);
+        System.out.println(password);
+        System.out.println(voornaam);
+        System.out.println(achternaam);
+
+        try {
+            if (username == null || password == null || voornaam == null || achternaam == null) {
+                throw new IllegalArgumentException();
+            }
+            new Eigenaar(username,password,voornaam,achternaam);
+            String role = MyUser.validateLogin(username, password);
+            String token = createToken(username, role);
+            SimpleEntry<String, String> JWT = new SimpleEntry<>("JWT", token);
+            return Response.ok(JWT).build();
+
+        } catch (IllegalArgumentException e) {
+            return Response.status(Response.Status.CONFLICT).build();
         }
     }
 }

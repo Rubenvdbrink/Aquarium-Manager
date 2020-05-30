@@ -5,7 +5,7 @@ import nl.hu.bep.model.AquariumManager;
 
 import java.util.ArrayList;
 
-public class Eigenaar {
+public class Eigenaar extends MyUser{
     private String voornaam;
     private String achternaam;
 
@@ -15,10 +15,14 @@ public class Eigenaar {
      * Constructors
      */
 
-    public Eigenaar(String voornaam, String achternaam) {
+    public Eigenaar(String username, String plainpassword, String voornaam, String achternaam) {
+        super(username, plainpassword);
         this.setVoornaam(voornaam);
         this.setAchternaam(achternaam);
         this.eigenAquaria = new ArrayList<>();
+        if(!AquariumManager.getAlleEigenaren().contains(this)) {
+            AquariumManager.getAlleEigenaren().add(this);
+        }
     }
 
     /**
@@ -39,6 +43,14 @@ public class Eigenaar {
             throw new IllegalArgumentException("Niet alle velden zijn correct ingevoerd!");
         }
         this.achternaam = achternaam;
+    }
+
+    public boolean addAquarium(Aquarium aquarium) {
+        if (!this.eigenAquaria.contains(aquarium)) {
+            eigenAquaria.add(aquarium);
+            return true;
+        }
+        return false;
     }
 
     public ArrayList<Aquarium> getEigenAquaria() { return eigenAquaria; }

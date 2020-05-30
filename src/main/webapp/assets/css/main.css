@@ -1,0 +1,9 @@
+.center {
+    text-align: center;
+}
+
+.bekijkaquariadiv p{
+    min-height: 100px;
+    min-width: 500px;
+    border: 1px solid black;
+}

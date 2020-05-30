@@ -1,10 +1,12 @@
 package nl.hu.bep.model.personen;
 
+import nl.hu.bep.model.AquariumManager;
+
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyUser implements Principal {
+public abstract class MyUser implements Principal {
     private static List<MyUser> allMyUsers = new ArrayList<>();
     private String username;
     private String plainpassword;
@@ -32,11 +34,30 @@ public class MyUser implements Principal {
         return this.role;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MyUser myUser = (MyUser) o;
+
+        return username != null ? username.equals(myUser.username) : myUser.username == null;
+    }
+
     public static MyUser getUserByUsername(String username) {
         return allMyUsers.stream()
                 .filter(e -> e.username.equals(username))
                 .findFirst()
                 .orElse(null);
+    }
+
+    public Eigenaar getEigenaar() {
+        for (Eigenaar eigenaar : AquariumManager.getAlleEigenaren()) {
+            if (eigenaar.getName().equals(this.username)) {
+                return eigenaar;
+            }
+        }
+        return null;
     }
 
     public static String validateLogin(String username, String password) {

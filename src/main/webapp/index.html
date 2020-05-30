@@ -3,35 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Fishy System</title>
-    <link rel="icon" type="image/png" sizes="70x70" href="/ms-icon-70x70.png">
+    <link rel="icon" type="image/png" sizes="70x70" href="/assets/images/ms-icon-70x70.png">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 </head>
 <body>
     <header>
-        <h1>Fishy System</h1>
+        <h1 class="center">Fishy System</h1>
     </header>
 
     <div id="logindiv">
         <h2>Log in als gebruiker</h2>
         <form id="loginform">
-            <input type="text" name = "username" />
-            <input type ="password" name = "password" />
+            <input type="text" name = "username" placeholder="gebruikersnaam"/>
+            <input type ="password" name = "password" placeholder="wachtwoord"/>
             <input type="button" value="login" id="login" />
         </form>
     </div>
-
+    <hr>
     <div id="registerdiv">
         <h2>Registreer als eigenaar</h2>
         <form id="registerform">
-            <input type="text" name = "username" />
-            <input type ="password" name = "password" />
+            <input type="text" name = "username" placeholder="gebruikersnaam"/>
+            <input type ="password" name = "password" placeholder="wachtwoord"/>
+            <input type="text" name = "voornaam" placeholder="voornaam"/>
+            <input type="text" name = "achternaam" placeholder="achternaam"/>
             <input type="button" value="register" id="register" />
         </form>
     </div>
-
-    <div id="links">
-        <a href="/restservices/aquarium/alleAquaria">admin</a>
-        <a href="/restservices/aquarium/alleAquaria">user</a>
+    <hr>
+    <div id="uitloggendiv">
+        <h2>Uitloggen</h2>
+        <input type="button" value="uitloggen" id="uitloggen" />
     </div>
+    <hr>
+    <div id="bekijkaquariadiv">
+        <h2>Bekijk eigen aquaria</h2>
+        <p id="alleaquaria">test</p>
+    </div>
+    <hr>
+
     <script src="assets/js/login.js"></script>
+    <script src="assets/js/register.js"></script>
+    <script src="assets/js/uitloggen.js"></script>
 </body>
 </html>

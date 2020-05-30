@@ -11,7 +11,7 @@ class EigenaarTest {
 
     @BeforeEach
     void beforeEach() {
-        e1 = new Eigenaar("Meneer", "Krabs");
+        e1 = new Eigenaar("AquaRuben","1234", "ruben", "van den Brink");
     }
 
     /**
@@ -20,37 +20,37 @@ class EigenaarTest {
 
     @Test
     void newEigenaarVoornaamNullShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> new Eigenaar(null,"van den Kreeft"));
+        assertThrows(IllegalArgumentException.class, () -> new Eigenaar("AquaRuben","1234",null,"van den Kreeft"));
     }
 
     @Test
     void newEigenaarAchternaamNullShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> new Eigenaar("Octo",null));
+        assertThrows(IllegalArgumentException.class, () -> new Eigenaar("AquaRuben","1234","Octo",null));
     }
 
     @Test
     void newEigenaarVoornaamEmptyShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> new Eigenaar("", "van den Kreeft"));
+        assertThrows(IllegalArgumentException.class, () -> new Eigenaar("AquaRuben","1234","", "van den Kreeft"));
     }
 
     @Test
     void newEigenaarAchternaamEmptyShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> new Eigenaar("Octo",""));
+        assertThrows(IllegalArgumentException.class, () -> new Eigenaar("AquaRuben","1234","Octo",""));
     }
 
     @Test
     void newEigenaarVoornaamBlankShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> new Eigenaar("  ","van den Kreeft"));
+        assertThrows(IllegalArgumentException.class, () -> new Eigenaar("AquaRuben","1234","  ","van den Kreeft"));
     }
 
     @Test
     void newEigenaarAchternaamBlankShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> new Eigenaar("Octo","  "));
+        assertThrows(IllegalArgumentException.class, () -> new Eigenaar("AquaRuben","1234","Octo","  "));
     }
 
     @Test
     void newEigenaarCorrectShouldNotThrow() {
-        assertDoesNotThrow( () -> new Eigenaar("Meneer", "Krabs"));
+        assertDoesNotThrow( () -> new Eigenaar("AquaRuben","1234","Meneer", "Krabs"));
     }
 
     /**
