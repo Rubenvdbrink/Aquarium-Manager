@@ -2,6 +2,8 @@ package nl.hu.bep.model.aquarium;
 
 import nl.hu.bep.model.AquariumManager;
 import nl.hu.bep.model.bewoners.Bewoner;
+import nl.hu.bep.model.bewoners.Slak;
+import nl.hu.bep.model.bewoners.Vis;
 
 import java.util.ArrayList;
 
@@ -96,4 +98,32 @@ public class Aquarium {
     /**
      * methods
      */
+
+    public void addBewoner(Bewoner bewoner) {
+        for (Bewoner bewoneraqua : this.bewoners) {
+            if (bewoneraqua.equals(bewoner)) {
+                bewoneraqua.setAantal(bewoneraqua.getAantal()+bewoner.getAantal()); //aantal wordt opgeteld
+                bewoneraqua.setGroepsDier(bewoner.isGroepsDier()); //als groepsdier boolean veranderd wordt het overschreven
+                if (bewoner instanceof Slak) {
+                    ((Slak) bewoneraqua).setSlakkenEtend(((Slak) bewoner).isSlakkenEtend()); //zelfde als groepsdier...
+                }
+                if (bewoner instanceof Vis) {
+                    ((Vis) bewoneraqua).setAlgEtend(((Vis) bewoner).isAlgEtend());
+                    ((Vis) bewoneraqua).setVereistSpeciaalVisVoer(((Vis) bewoner).isVereistSpeciaalVisVoer());
+                }
+                return;
+            }
+        }
+        this.bewoners.add(bewoner);
+    }
+
+    public boolean addToebehoren(Toebehoren toebehoren) {
+        for (Toebehoren toebehorenaqua : this.toebehoren) {
+            if (toebehorenaqua.equals(toebehoren)) {
+                return false;
+            }
+        }
+        this.toebehoren.add(toebehoren);
+        return true;
+    }
 }

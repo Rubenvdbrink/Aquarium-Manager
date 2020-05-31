@@ -32,4 +32,19 @@ public abstract class Toebehoren {
         }
         this.serienummer = serienummer;
     }
+
+    /**
+     * Methods
+     */
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Toebehoren that = (Toebehoren) o;
+
+        if (serienummer != that.serienummer) return false;
+        return model != null ? model.equals(that.model) : that.model == null;
+    }
 }

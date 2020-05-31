@@ -46,9 +46,4 @@ public class AquariumManager {
     public static ArrayList<Aquarium> getAlleAquaria() { return alleAquaria; }
 
     public static ArrayList<Bewoner> getAlleBewoners() { return alleBewoners; }
-
-    /**
-     * Methods
-     */
-
 }

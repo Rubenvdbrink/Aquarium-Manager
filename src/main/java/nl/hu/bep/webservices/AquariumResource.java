@@ -55,15 +55,15 @@ public class AquariumResource {
             if (user instanceof Eigenaar) {
                 var eigenaar = (Eigenaar) user;
                 if(eigenaar.addAquarium(a1)) {
-                    Response.ok().build();
+                    return Response.ok().build();
                 }
                 return Response.status(Response.Status.CONFLICT).build();
             }
 
-            if (user instanceof Beheerder) {
+            else if (user instanceof Beheerder) {
                 var beheerder = (Beheerder) user;
                 if(beheerder.addAquarium(a1)) {
-                    Response.ok().build();
+                    return Response.ok().build();
                 }
                 return Response.status(Response.Status.CONFLICT).build();
             }
@@ -92,7 +92,7 @@ public class AquariumResource {
             return Response.ok().build();
         }
 
-        if (user instanceof Beheerder) {
+        else if (user instanceof Beheerder) {
             var beheerder = (Beheerder) user;
             beheerder.removeAquarium(beheerder.getAquariumByName(naam));
             return Response.ok().build();

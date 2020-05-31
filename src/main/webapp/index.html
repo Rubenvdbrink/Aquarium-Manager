@@ -66,12 +66,130 @@
         </form>
     </div>
 
+    <div id="addbewoner">
+        <h2>Voeg bewoner(s) toe</h2>
+
+        <div id="garnaal" class="innerdiv">
+            <h3>Garnaal</h3>
+            <form id="garnaalform">
+                <input type="text" name = "aquariumnaam" placeholder="naam van uw aquarium"/>
+                <input type="text" name = "soortnaam" placeholder="soortnaam"/>
+                <input type="text" name = "kleurnaam" placeholder="kleurnaam"/>
+                <input type="number" name = "aantal" placeholder="aantal"/>
+                <input type="checkbox" name = "garnaalgroepsdier" id="garnaalgroepsdier" value="groepsdier"/>
+                <label for="garnaalgroepsdier">Groepsdier</label>
+                <input type="button" value="Voeg garna(a)l(en) toe" id="maakgarnaalaan" />
+            </form>
+        </div>
+
+        <div id="kreeft" class="innerdiv">
+            <h3>Kreeft</h3>
+            <form id="kreeftform">
+                <input type="text" name = "aquariumnaam" placeholder="naam van uw aquarium"/>
+                <input type="text" name = "soortnaam" placeholder="soortnaam"/>
+                <input type="text" name = "kleurnaam" placeholder="kleurnaam"/>
+                <input type="number" name = "aantal" placeholder="aantal"/>
+                <input type="checkbox" name = "kreeftgroepsdier" id="kreeftgroepsdier" value="groepsdier"/>
+                <label for="kreeftgroepsdier">Groepsdier</label>
+                <input type="button" value="Voeg kreeft(en) toe" id="maakkreeftaan" />
+            </form>
+        </div>
+
+        <div id="slak" class="innerdiv">
+            <h3>Slak</h3>
+            <form id="slakform">
+                <input type="text" name = "aquariumnaam" placeholder="naam van uw aquarium"/>
+                <input type="text" name = "soortnaam" placeholder="soortnaam"/>
+                <input type="text" name = "kleurnaam" placeholder="kleurnaam"/>
+                <input type="number" name = "aantal" placeholder="aantal"/>
+                <input type="checkbox" name = "slakgroepsdier" id = "slakgroepsdier" value="groepsdier"/>
+                <label for="slakgroepsdier">Groepsdier</label>
+                <input type="checkbox" name = "slakkenetend" id="slakslakkenetend" value="slakkenetend"/>
+                <label for="slakslakkenetend">Slakken etend</label>
+                <input type="button" value="Voeg slak(ken) toe" id="maakslakaan" />
+            </form>
+        </div>
+
+        <div id="vis" class="innerdiv">
+            <h3>Vis</h3>
+            <form id="visform">
+                <input type="text" name = "aquariumnaam" placeholder="naam van uw aquarium"/>
+                <input type="text" name = "soortnaam" placeholder="soortnaam"/>
+                <input type="text" name = "kleurnaam" placeholder="kleurnaam"/>
+                <input type="number" name = "aantal" placeholder="aantal"/>
+                <input type="checkbox" name = "visgroepsdier" id="visgroepsdier" value="groepsdier"/>
+                <label for="visgroepsdier">Groepsdier</label>
+                <input type="checkbox" name = "algetend" id="visalgetend" value="Alg etend"/>
+                <label for="visalgetend">Alg etend</label>
+                <input type="checkbox" name = "speciaalvoer" id="visspeciaalvoer" value="vereistspeciaalvoer"/>
+                <label for="visspeciaalvoer">Vereist speciaal voer</label>
+                <input type="button" value="Voeg vis(sen) toe" id="maakvisaan" />
+            </form>
+        </div>
+    </div>
+
+    <div id="addtoebehoren">
+        <h2>Voeg toebehoren toe</h2>
+        <div id="verlichting" class="innerdiv">
+            <h3>Verlichting</h3>
+            <form id="verlichtingform">
+                <input type="text" name = "aquariumnaam" placeholder="naam van uw aquarium"/>
+                <input type="text" name = "model" placeholder="model"/>
+                <input type="number" name = "serienummer" placeholder="serienummer"/>
+                <input type="number" name = "tijdaan" placeholder="tijd aan"/>
+                <input type="number" name = "tijduit" placeholder="tijd uit"/>
+                <input type="checkbox" name = "isled" id="isled" value="isled"/>
+                <label for="isled">led verlichting</label>
+                <input type="button" value="Voeg verlichting toe" id="maakverlichtingaan" />
+            </form>
+        </div>
+
+        <div id="thermostaat" class="innerdiv">
+            <h3>Thermostaat</h3>
+            <p>De minimale temperatuur moet groter zijn dan 0<br>
+            De maximale temperatuur moet kleiner zijn dan 100<br>
+            De huidige temperatuur moet tussen de minimale en maximale temperatuur liggen</p>
+            <form id="thermostaatform">
+                <input type="text" name = "aquariumnaam" placeholder="naam van uw aquarium"/>
+                <input type="text" name = "model" placeholder="model"/>
+                <input type="number" name = "serienummer" placeholder="serienumer"/>
+                <input type="number" name = "mintemp" placeholder="minimale temperatuur"/>
+                <input type="number" name = "maxtemp" placeholder="maximale temperatuur"/>
+                <input type="number" name = "huidigetemp" placeholder="huidige temperatuur"/>
+                <input type="button" value="Voeg thermostaat toe" id="maakthermostaataan" />
+            </form>
+        </div>
+
+        <div id="filter" class="innerdiv">
+            <h3>Filter</h3>
+            <form id="filterform">
+                <input type="text" name = "aquariumnaam" placeholder="naam van uw aquarium"/>
+                <input type="text" name = "model" placeholder="model"/>
+                <input type="number" name = "serienummer" placeholder="serienumer"/>
+                <input type="number" name = "aantalliter" placeholder="aantal liter(capaciteit)"/>
+                <input type="checkbox" name = "isextern" id="isextern" value="isextern"/>
+                <label for="isextern">extern</label>
+                <input type="button" value="Voeg filter toe" id="maakfilteraan" />
+            </form>
+        </div>
+    </div>
+    <div id="removeeigenaar">
+        <h2>Verwijder eigenaar</h2>
+        <form id="removeeigenaarform">
+            <input type="text" name = "eigenaarnaam" placeholder="gebruikersnaam van eigenaar"/>
+            <input type="button" value="Verwijder eigenaar" id="verwijdereigenaar" />
+        </form>
+    </div>
+
     <script src="assets/js/login.js"></script>
     <script src="assets/js/register.js"></script>
     <script src="assets/js/uitloggen.js"></script>
     <script src="assets/js/alleaquaria.js"></script>
     <script src="assets/js/addaquarium.js"></script>
     <script src="assets/js/removeaquarium.js"></script>
+    <script src="assets/js/addbewoner.js"></script>
+    <script src="assets/js/addtoebehoren.js"></script>
+    <script src="assets/js/removeeigenaar.js"></script>
 
 </body>
 </html>

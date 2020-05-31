@@ -47,4 +47,15 @@ public abstract class Bewoner {
 
     public boolean isGroepsDier() { return groepsDier; }
     public void setGroepsDier(boolean groepsDier) { this.groepsDier = groepsDier; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Bewoner bewoner = (Bewoner) o;
+
+        if (soortnaam != null ? !soortnaam.equals(bewoner.soortnaam) : bewoner.soortnaam != null) return false;
+        return kleurnaam != null ? kleurnaam.equals(bewoner.kleurnaam) : bewoner.kleurnaam == null;
+    }
 }

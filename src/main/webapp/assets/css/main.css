@@ -1,3 +1,5 @@
+@import url("tabs.css");
+
 .center {
     text-align: center;
     display: block;
@@ -36,4 +38,11 @@ body {
 
 #aquariumnaaminput {
     width: 250px;
+}
+
+.innerdiv {
+    background-color: #E6E6FA;
+    color: #BA55D3;
+    border-radius: 5px;
+    padding: 10px;
 }
