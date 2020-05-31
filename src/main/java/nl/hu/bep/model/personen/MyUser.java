@@ -34,15 +34,6 @@ public abstract class MyUser implements Principal {
         return this.role;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        MyUser myUser = (MyUser) o;
-
-        return username != null ? username.equals(myUser.username) : myUser.username == null;
-    }
 
     public static MyUser getUserByUsername(String username) {
         return allMyUsers.stream()
@@ -60,6 +51,20 @@ public abstract class MyUser implements Principal {
         return null;
     }
 
+    /**
+     * Methods
+     */
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MyUser myUser = (MyUser) o;
+
+        return username != null ? username.equals(myUser.username) : myUser.username == null;
+    }
+
     @Override
     public String toString() {
         return "MyUser{" +
@@ -75,5 +80,12 @@ public abstract class MyUser implements Principal {
             return password.equals(found.plainpassword) ? found.getRole(): null;
         }
         return null;
+    }
+
+    //WIP
+    public void removeEigenaar() {
+        AquariumManager.getAlleEigenaren().remove(this);
+        this.username = "ioawdiawmwkjhdukajhid";
+        this.plainpassword = "uiwhdiuawkt65tghbjiu7ygbhnjkijuhud";
     }
 }

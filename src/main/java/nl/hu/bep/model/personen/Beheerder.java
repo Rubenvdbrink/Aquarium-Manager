@@ -16,8 +16,7 @@ public class Beheerder extends Eigenaar {
     public boolean removeEigenaar(MyUser user) {
         if (user instanceof Eigenaar) {
            if(AquariumManager.getAlleEigenaren().contains(user)) {
-               AquariumManager.getAlleEigenaren().remove(user);
-               user = null;
+               user.removeEigenaar();
                return true;
            }
         }

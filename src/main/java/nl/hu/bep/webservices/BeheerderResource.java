@@ -11,6 +11,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+import java.util.AbstractMap;
 
 @Path("/beheerder")
 public class BeheerderResource {
@@ -32,11 +33,13 @@ public class BeheerderResource {
             System.out.println(AquariumManager.getAlleEigenaren());
             if (beheerder.removeEigenaar(MyUser.getUserByUsername(naam))) {
                 System.out.println(AquariumManager.getAlleEigenaren());
-                return Response.ok().build();
+                return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "eigenaar verwijderd!")).build();
             }
-            return Response.status(Response.Status.CONFLICT).build();
+            return Response.status(Response.Status.CONFLICT).entity(
+                    new AbstractMap.SimpleEntry<>("resultaat", "eigenaar niet verwijderd")).build();
         } catch (IllegalArgumentException e) {
-            return Response.status(Response.Status.CONFLICT).build();
+            return Response.status(Response.Status.CONFLICT).entity(
+                    new AbstractMap.SimpleEntry<>("resultaat", "eigenaar niet verwijderd")).build();
         }
     }
 }

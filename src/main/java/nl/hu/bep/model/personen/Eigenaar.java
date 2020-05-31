@@ -76,4 +76,5 @@ public class Eigenaar extends MyUser {
     public void removeAquarium(Aquarium aquarium) {
         this.eigenAquaria.remove(aquarium);
     }
+
 }

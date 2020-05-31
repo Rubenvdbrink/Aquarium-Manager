@@ -11,6 +11,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+import java.util.AbstractMap;
 
 @Path("/aquarium")
 public class AquariumResource {
@@ -30,8 +31,8 @@ public class AquariumResource {
             var beheerder = (Beheerder) user;
             return Response.ok(beheerder.getEigenAquaria()).build();
         }
-        return Response.status(Response.Status.CONFLICT).build();
-//        System.out.println(user.getEigenaar().getVoornaam() + user.getEigenaar().getAchternaam());
+        return Response.status(Response.Status.CONFLICT).entity(
+                new AbstractMap.SimpleEntry<>("resultaat", "alle aquaria niet gevonden")).build();
     }
 
     @POST
@@ -55,7 +56,7 @@ public class AquariumResource {
             if (user instanceof Eigenaar) {
                 var eigenaar = (Eigenaar) user;
                 if(eigenaar.addAquarium(a1)) {
-                    return Response.ok().build();
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "aquarium toegevoegd!")).build();
                 }
                 return Response.status(Response.Status.CONFLICT).build();
             }
@@ -63,14 +64,17 @@ public class AquariumResource {
             else if (user instanceof Beheerder) {
                 var beheerder = (Beheerder) user;
                 if(beheerder.addAquarium(a1)) {
-                    return Response.ok().build();
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "aquarium toegevoegd!")).build();
                 }
-                return Response.status(Response.Status.CONFLICT).build();
+                return Response.status(Response.Status.CONFLICT).entity(
+                        new AbstractMap.SimpleEntry<>("resultaat", "aquarium niet toegevoegd")).build();
             }
         } catch(IllegalArgumentException e){
-            return Response.status(Response.Status.CONFLICT).build();
+            return Response.status(Response.Status.CONFLICT).entity(
+                    new AbstractMap.SimpleEntry<>("resultaat", "aquarium niet toegevoegd")).build();
         }
-        return Response.status(Response.Status.CONFLICT).build();
+        return Response.status(Response.Status.CONFLICT).entity(
+                new AbstractMap.SimpleEntry<>("resultaat", "aquarium niet toegevoegd")).build();
     }
 
     @DELETE
@@ -89,18 +93,20 @@ public class AquariumResource {
         if (user instanceof Eigenaar) {
             var eigenaar = (Eigenaar) user;
             eigenaar.removeAquarium(eigenaar.getAquariumByName(naam));
-            return Response.ok().build();
+            return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "aquarium verwijderd!")).build();
         }
 
         else if (user instanceof Beheerder) {
             var beheerder = (Beheerder) user;
             beheerder.removeAquarium(beheerder.getAquariumByName(naam));
-            return Response.ok().build();
+            return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "aquarium verwijderd!")).build();
         }
 
         } catch (IllegalArgumentException e) {
-            return Response.status(Response.Status.CONFLICT).build();
+            return Response.status(Response.Status.CONFLICT).entity(
+                    new AbstractMap.SimpleEntry<>("resultaat", "aquarium niet verwijderd")).build();
         }
-        return Response.status(Response.Status.CONFLICT).build();
+        return Response.status(Response.Status.CONFLICT).entity(
+                new AbstractMap.SimpleEntry<>("resultaat", "aquarium niet verwijderd")).build();
     }
 }

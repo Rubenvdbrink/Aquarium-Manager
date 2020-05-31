@@ -11,6 +11,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.security.Key;
+import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.Calendar;
 
@@ -36,11 +37,9 @@ public class AuthenticationResource {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response authenticateUserByPassword(@FormParam("username") String username,
                                                @FormParam("password") String password) {
-//        System.out.println(username);
-//        System.out.println(password);
+
         try {
             String role = MyUser.validateLogin(username, password);
-//            System.out.println(role + "\n");
             if (role == null) {
                 throw new IllegalArgumentException();
             }
@@ -49,7 +48,8 @@ public class AuthenticationResource {
             SimpleEntry<String, String> JWT = new SimpleEntry<>("JWT", token);
             return Response.ok(JWT).build();
         } catch (JwtException | IllegalArgumentException e) {
-            return Response.status(Response.Status.UNAUTHORIZED).build();
+            return Response.status(Response.Status.UNAUTHORIZED).entity(
+                    new AbstractMap.SimpleEntry<>("resultaat", "kan niet geauthenticeerd worden")).build();
         }
     }
 
@@ -58,9 +58,9 @@ public class AuthenticationResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response registerEigenaar(@FormParam("username") String username,
-                               @FormParam("password") String password,
-                               @FormParam("voornaam") String voornaam,
-                               @FormParam("achternaam") String achternaam) {
+                                     @FormParam("password") String password,
+                                     @FormParam("voornaam") String voornaam,
+                                     @FormParam("achternaam") String achternaam) {
         try {
             if (username == null || password == null || voornaam == null || achternaam == null) {
                 throw new IllegalArgumentException("Voer alle velden in!");
@@ -72,7 +72,8 @@ public class AuthenticationResource {
             return Response.ok(JWT).build();
 
         } catch (IllegalArgumentException e) {
-            return Response.status(Response.Status.CONFLICT).build();
+            return Response.status(Response.Status.CONFLICT).entity(
+                    new AbstractMap.SimpleEntry<>("resultaat", "kan niet registreren")).build();
         }
     }
 }

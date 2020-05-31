@@ -14,6 +14,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+import java.util.AbstractMap;
 
 @Path("/toebehoren")
 public class ToebehorenResource {
@@ -47,24 +48,28 @@ public class ToebehorenResource {
                 var eigenaar = (Eigenaar) user;
                 Aquarium a1 = eigenaar.getAquariumByName(aquariumnaam);
                 if(a1.addToebehoren(v1)) {
-                    return Response.ok().build();
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "toebehoren toegevoegd!")).build();
                 }
-                return Response.status(Response.Status.CONFLICT).build();
+                return Response.status(Response.Status.CONFLICT).entity(
+                        new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
             }
 
             else if(user instanceof Beheerder) {
                 var beheerder = (Beheerder) user;
                 Aquarium a1 = beheerder.getAquariumByName(aquariumnaam);
                 if(a1.addToebehoren(v1)) {
-                    return Response.ok().build();
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "toebehoren toegevoegd!")).build();
                 }
-                return Response.status(Response.Status.CONFLICT).build();
+                return Response.status(Response.Status.CONFLICT).entity(
+                        new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
             }
 
         } catch (IllegalArgumentException e) {
-            return Response.status(Response.Status.CONFLICT).build();
+            return Response.status(Response.Status.CONFLICT).entity(
+                    new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
         }
-        return Response.status(Response.Status.CONFLICT).build();
+        return Response.status(Response.Status.CONFLICT).entity(
+                new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
     }
 
     @POST
@@ -91,24 +96,28 @@ public class ToebehorenResource {
                 var eigenaar = (Eigenaar) user;
                 Aquarium a1 = eigenaar.getAquariumByName(aquariumnaam);
                 if(a1.addToebehoren(t1)) {
-                    return Response.ok().build();
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "toebehoren toegevoegd!")).build();
                 }
-                return Response.status(Response.Status.CONFLICT).build();
+                return Response.status(Response.Status.CONFLICT).entity(
+                        new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
             }
 
             else if(user instanceof Beheerder) {
                 var beheerder = (Beheerder) user;
                 Aquarium a1 = beheerder.getAquariumByName(aquariumnaam);
                 if(a1.addToebehoren(t1)) {
-                    return Response.ok().build();
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "toebehoren toegevoegd!")).build();
                 }
-                return Response.status(Response.Status.CONFLICT).build();
+                return Response.status(Response.Status.CONFLICT).entity(
+                        new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
             }
 
         } catch (IllegalArgumentException e) {
-            return Response.status(Response.Status.CONFLICT).build();
+            return Response.status(Response.Status.CONFLICT).entity(
+                    new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
         }
-        return Response.status(Response.Status.CONFLICT).build();
+        return Response.status(Response.Status.CONFLICT).entity(
+                new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
     }
 
     @POST
@@ -139,23 +148,27 @@ public class ToebehorenResource {
                 var eigenaar = (Eigenaar) user;
                 Aquarium a1 = eigenaar.getAquariumByName(aquariumnaam);
                 if(a1.addToebehoren(f1)) {
-                    return Response.ok().build();
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "toebehoren toegevoegd!")).build();
                 }
-                return Response.status(Response.Status.CONFLICT).build();
+                return Response.status(Response.Status.CONFLICT).entity(
+                        new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
             }
 
             else if(user instanceof Beheerder) {
                 var beheerder = (Beheerder) user;
                 Aquarium a1 = beheerder.getAquariumByName(aquariumnaam);
                 if(a1.addToebehoren(f1)) {
-                    return Response.ok().build();
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "toebehoren toegevoegd!")).build();
                 }
-                return Response.status(Response.Status.CONFLICT).build();
+                return Response.status(Response.Status.CONFLICT).entity(
+                        new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
             }
 
         } catch (IllegalArgumentException e) {
-            return Response.status(Response.Status.CONFLICT).build();
+            return Response.status(Response.Status.CONFLICT).entity(
+                    new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
         }
-        return Response.status(Response.Status.CONFLICT).build();
+        return Response.status(Response.Status.CONFLICT).entity(
+                new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
     }
 }
