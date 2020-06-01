@@ -85,7 +85,6 @@ public abstract class MyUser implements Principal {
     //WIP
     public void removeEigenaar() {
         AquariumManager.getAlleEigenaren().remove(this);
-        this.username = "ioawdiawmwkjhdukajhid";
-        this.plainpassword = "uiwhdiuawkt65tghbjiu7ygbhnjkijuhud";
+        allMyUsers.remove(this);
     }
 }

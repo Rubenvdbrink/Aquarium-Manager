@@ -29,10 +29,7 @@ public class BeheerderResource {
             }
             var beheerder = (Beheerder) context.getUserPrincipal();
 
-            System.out.println(MyUser.getUserByUsername(naam));
-            System.out.println(AquariumManager.getAlleEigenaren());
             if (beheerder.removeEigenaar(MyUser.getUserByUsername(naam))) {
-                System.out.println(AquariumManager.getAlleEigenaren());
                 return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "eigenaar verwijderd!")).build();
             }
             return Response.status(Response.Status.CONFLICT).entity(
