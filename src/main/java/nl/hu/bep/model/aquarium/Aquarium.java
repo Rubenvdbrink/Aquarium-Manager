@@ -99,22 +99,14 @@ public class Aquarium {
      * methods
      */
 
-    public void addBewoner(Bewoner bewoner) {
+    public boolean addBewoner(Bewoner bewoner) {
         for (Bewoner bewoneraqua : this.bewoners) {
             if (bewoneraqua.equals(bewoner)) {
-                bewoneraqua.setAantal(bewoneraqua.getAantal()+bewoner.getAantal()); //aantal wordt opgeteld
-                bewoneraqua.setGroepsDier(bewoner.isGroepsDier()); //als groepsdier boolean veranderd wordt het overschreven
-                if (bewoner instanceof Slak) {
-                    ((Slak) bewoneraqua).setSlakkenEtend(((Slak) bewoner).isSlakkenEtend()); //zelfde als groepsdier...
-                }
-                if (bewoner instanceof Vis) {
-                    ((Vis) bewoneraqua).setAlgEtend(((Vis) bewoner).isAlgEtend());
-                    ((Vis) bewoneraqua).setVereistSpeciaalVisVoer(((Vis) bewoner).isVereistSpeciaalVisVoer());
-                }
-                return;
+                return false;
             }
         }
         this.bewoners.add(bewoner);
+        return true;
     }
 
     public boolean addToebehoren(Toebehoren toebehoren) {
@@ -124,6 +116,16 @@ public class Aquarium {
             }
         }
         this.toebehoren.add(toebehoren);
+        return true;
+    }
+
+    public boolean addOrnament(Ornament ornament) {
+        for(Ornament ornamentaqua : this.ornamenten) {
+            if (ornamentaqua.equals(ornament)) {
+                return false;
+            }
+        }
+        this.ornamenten.add(ornament);
         return true;
     }
 }

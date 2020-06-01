@@ -47,16 +47,18 @@ public class BewonerResource {
 
             if (user instanceof Eigenaar) {
                 var eigenaar = (Eigenaar) user;
-                Aquarium a1 =  eigenaar.getAquariumByName(aquariumnaam);
-                a1.addBewoner(g1);
-                return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                Aquarium a1 = eigenaar.getAquariumByName(aquariumnaam);
+                if (a1.addBewoner(g1)) {
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                }
             }
 
             else if (user instanceof Beheerder) {
                 var beheerder = (Beheerder) user;
-                Aquarium a1 =  beheerder.getAquariumByName(aquariumnaam);
-                a1.addBewoner(g1);
-                return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                Aquarium a1 = beheerder.getAquariumByName(aquariumnaam);
+                if (a1.addBewoner(g1)) {
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                }
             }
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.CONFLICT).entity(
@@ -93,16 +95,18 @@ public class BewonerResource {
 
             if (user instanceof Eigenaar) {
                 var eigenaar = (Eigenaar) user;
-                Aquarium a1 =  eigenaar.getAquariumByName(aquariumnaam);
-                a1.addBewoner(k1);
-                return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                Aquarium a1 = eigenaar.getAquariumByName(aquariumnaam);
+                if (a1.addBewoner(k1)) {
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                }
             }
 
             else if (user instanceof Beheerder) {
                 var beheerder = (Beheerder) user;
-                Aquarium a1 =  beheerder.getAquariumByName(aquariumnaam);
-                a1.addBewoner(k1);
-                return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                Aquarium a1 = beheerder.getAquariumByName(aquariumnaam);
+                if (a1.addBewoner(k1)) {
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                }
             }
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.CONFLICT).entity(
@@ -144,16 +148,18 @@ public class BewonerResource {
 
             if (user instanceof Eigenaar) {
                 var eigenaar = (Eigenaar) user;
-                Aquarium a1 =  eigenaar.getAquariumByName(aquariumnaam);
-                a1.addBewoner(s1);
-                return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                Aquarium a1 = eigenaar.getAquariumByName(aquariumnaam);
+                if (a1.addBewoner(s1)) {
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                }
             }
 
             else if (user instanceof Beheerder) {
                 var beheerder = (Beheerder) user;
-                Aquarium a1 =  beheerder.getAquariumByName(aquariumnaam);
-                a1.addBewoner(s1);
-                return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                Aquarium a1 = beheerder.getAquariumByName(aquariumnaam);
+                if (a1.addBewoner(s1)) {
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                }
             }
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.CONFLICT).entity(
@@ -200,16 +206,18 @@ public class BewonerResource {
 
             if (user instanceof Eigenaar) {
                 var eigenaar = (Eigenaar) user;
-                Aquarium a1 =  eigenaar.getAquariumByName(aquariumnaam);
-                a1.addBewoner(v1);
-                return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                Aquarium a1 = eigenaar.getAquariumByName(aquariumnaam);
+                if (a1.addBewoner(v1)) {
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                }
             }
 
             else if (user instanceof Beheerder) {
                 var beheerder = (Beheerder) user;
-                Aquarium a1 =  beheerder.getAquariumByName(aquariumnaam);
-                a1.addBewoner(v1);
-                return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                Aquarium a1 = beheerder.getAquariumByName(aquariumnaam);
+                if (a1.addBewoner(v1)) {
+                    return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "bewoner toegevoegd!")).build();
+                }
             }
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.CONFLICT).entity(

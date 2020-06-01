@@ -1,16 +1,24 @@
 package nl.hu.bep.model.aquarium;
 
+import nl.hu.bep.model.AquariumManager;
+import nl.hu.bep.model.bewoners.Bewoner;
+import nl.hu.bep.model.bewoners.Vis;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import javax.validation.constraints.AssertFalse;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AquariumTest {
-    Aquarium a1;
+    Aquarium aquatest;
+    AquariumManager aquaMan;
 
     @BeforeEach
     void beforeEach() {
-        a1 = new Aquarium("Bikini Bottom", 100, 100, 50, "zand", "zout");
+        aquaMan = new AquariumManager("Testmanager");
+        aquatest = new Aquarium("Bikini Bottom", 100, 100, 50, "zand", "zout");
     }
 
     /**
@@ -88,26 +96,26 @@ class AquariumTest {
 
     @Test
     void setNaam() {
-        a1.setNaam("Crusty Crab");
-        assertEquals("Crusty Crab", a1.getNaam());
+        aquatest.setNaam("Crusty Crab");
+        assertEquals("Crusty Crab", aquatest.getNaam());
     }
 
     @Test
     void setNaamNullShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> a1.setNaam(null));
+        assertThrows(IllegalArgumentException.class, () -> aquatest.setNaam(null));
     }
 
     @Test
     void setNaamEmptyShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> a1.setNaam(""));
+        assertThrows(IllegalArgumentException.class, () -> aquatest.setNaam(""));
     }
 
     @Test
-    void setNaamBlankShouldThrow() { assertThrows(IllegalArgumentException.class, () -> a1.setNaam("  ")); }
+    void setNaamBlankShouldThrow() { assertThrows(IllegalArgumentException.class, () -> aquatest.setNaam("  ")); }
 
     @Test
     void setNaamCorrectShouldNotThrow() {
-        assertDoesNotThrow( () -> a1.setNaam("Crusty Crab"));
+        assertDoesNotThrow( () -> aquatest.setNaam("Crusty Crab"));
     }
 
     /**
@@ -116,26 +124,26 @@ class AquariumTest {
 
     @Test
     void setBodemsoort() {
-        a1.setBodemsoort("kiezelstenen");
-        assertEquals("kiezelstenen", a1.getBodemsoort());
+        aquatest.setBodemsoort("kiezelstenen");
+        assertEquals("kiezelstenen", aquatest.getBodemsoort());
     }
 
     @Test
     void setBodemsoortNullShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> a1.setBodemsoort(null));
+        assertThrows(IllegalArgumentException.class, () -> aquatest.setBodemsoort(null));
     }
 
     @Test
     void setBodemsoortEmptyShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> a1.setBodemsoort(""));
+        assertThrows(IllegalArgumentException.class, () -> aquatest.setBodemsoort(""));
     }
 
     @Test
-    void setBodemsoortBlankShouldThrow() { assertThrows(IllegalArgumentException.class, () -> a1.setBodemsoort("  ")); }
+    void setBodemsoortBlankShouldThrow() { assertThrows(IllegalArgumentException.class, () -> aquatest.setBodemsoort("  ")); }
 
     @Test
     void setBodemsoortCorrectShouldNotThrow() {
-        assertDoesNotThrow( () -> a1.setBodemsoort("kiezelstenen"));
+        assertDoesNotThrow( () -> aquatest.setBodemsoort("kiezelstenen"));
     }
 
     /**
@@ -144,26 +152,26 @@ class AquariumTest {
 
     @Test
     void setWatersoort() {
-        a1.setWatersoort("kiezelstenen");
-        assertEquals("kiezelstenen", a1.getWatersoort());
+        aquatest.setWatersoort("kiezelstenen");
+        assertEquals("kiezelstenen", aquatest.getWatersoort());
     }
 
     @Test
     void setWatersoortNullShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> a1.setWatersoort(null));
+        assertThrows(IllegalArgumentException.class, () -> aquatest.setWatersoort(null));
     }
 
     @Test
     void setWatersoortEmptyShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> a1.setWatersoort(""));
+        assertThrows(IllegalArgumentException.class, () -> aquatest.setWatersoort(""));
     }
 
     @Test
-    void setWatersoortBlankShouldThrow() { assertThrows(IllegalArgumentException.class, () -> a1.setWatersoort("  ")); }
+    void setWatersoortBlankShouldThrow() { assertThrows(IllegalArgumentException.class, () -> aquatest.setWatersoort("  ")); }
 
     @Test
     void setWatersoortCorrectShouldNotThrow() {
-        assertDoesNotThrow( () -> a1.setWatersoort("kiezelstenen"));
+        assertDoesNotThrow( () -> aquatest.setWatersoort("kiezelstenen"));
     }
 
     /**
@@ -172,18 +180,18 @@ class AquariumTest {
 
     @Test
     void setLengte() {
-        a1.setLengte(77);
-        assertEquals(77, a1.getLengte());
+        aquatest.setLengte(77);
+        assertEquals(77, aquatest.getLengte());
     }
 
     @Test
     void setLengteZeroShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> a1.setLengte(0));
+        assertThrows(IllegalArgumentException.class, () -> aquatest.setLengte(0));
     }
 
     @Test
     void setLengteCorrectShouldNotThrow() {
-        assertDoesNotThrow( () -> a1.setLengte(77));
+        assertDoesNotThrow( () -> aquatest.setLengte(77));
     }
 
     /**
@@ -192,18 +200,18 @@ class AquariumTest {
 
     @Test
     void setBreedte() {
-        a1.setBreedte(77);
-        assertEquals(77, a1.getBreedte());
+        aquatest.setBreedte(77);
+        assertEquals(77, aquatest.getBreedte());
     }
 
     @Test
     void setBreedteZeroShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> a1.setBreedte(0));
+        assertThrows(IllegalArgumentException.class, () -> aquatest.setBreedte(0));
     }
 
     @Test
     void setBreedteCorrectShouldNotThrow() {
-        assertDoesNotThrow( () -> a1.setBreedte(77));
+        assertDoesNotThrow( () -> aquatest.setBreedte(77));
     }
 
     /**
@@ -212,17 +220,68 @@ class AquariumTest {
 
     @Test
     void setHoogte() {
-        a1.setHoogte(77);
-        assertEquals(77, a1.getHoogte());
+        aquatest.setHoogte(77);
+        assertEquals(77, aquatest.getHoogte());
     }
 
     @Test
     void setHoogteZeroShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> a1.setHoogte(0));
+        assertThrows(IllegalArgumentException.class, () -> aquatest.setHoogte(0));
     }
 
     @Test
     void setHoogteCorrectShouldNotThrow() {
-        assertDoesNotThrow( () -> a1.setHoogte(77));
+        assertDoesNotThrow( () -> aquatest.setHoogte(77));
+    }
+
+    /**
+     * addBewoner tests
+     */
+
+    @Test
+    void addBewonerAlreadyExistsShouldBeFalse() {
+        Vis v1 = new Vis("bla", "bla", 5, true, true, true);
+        aquatest.addBewoner(v1);
+        assertFalse(aquatest.addBewoner(v1));
+    }
+
+    @Test
+    void addBewonerShouldBeTrue() {
+        Vis v1 = new Vis("bla", "bla", 5, true, true, true);
+        assertTrue(aquatest.addBewoner(v1));
+    }
+
+    /**
+     * addToebehoren tests
+     */
+
+    @Test
+    void addToebehorenAlreadyExistsShouldBeFalse() {
+        Filter f1 = new Filter("awdwad", 283792, true, 50);
+        aquatest.addToebehoren(f1);
+        assertFalse(aquatest.addToebehoren(f1));
+    }
+
+    @Test
+    void addToebehorenShouldBeTrue() {
+        Filter f1 = new Filter("awdwad", 283792, true, 50);
+        assertTrue(aquatest.addToebehoren(f1));
+    }
+
+    /**
+     * addOrnament tests
+     */
+
+    @Test
+    void addOrnamentAlreadyExistsShouldBeFalse() {
+        Ornament o1 = new Ornament("wad", "wadawd", "wadwad", true);
+        aquatest.addOrnament(o1);
+        assertFalse(aquatest.addOrnament(o1));
+    }
+
+    @Test
+    void addOrnamentShouldBeTrue() {
+        Ornament o1 = new Ornament("wad", "wadawd", "wadwad", true);
+        assertTrue(aquatest.addOrnament(o1));
     }
 }

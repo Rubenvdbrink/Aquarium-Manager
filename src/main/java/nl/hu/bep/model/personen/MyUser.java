@@ -82,9 +82,8 @@ public abstract class MyUser implements Principal {
         return null;
     }
 
-    //WIP
     public void removeEigenaar() {
-        AquariumManager.getAlleEigenaren().remove(this);
-        allMyUsers.remove(this);
+            AquariumManager.getAlleEigenaren().remove(this);
+            allMyUsers.remove(this);
     }
 }

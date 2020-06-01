@@ -1,5 +1,6 @@
 package nl.hu.bep.model;
 
+import nl.hu.bep.model.aquarium.Aquarium;
 import nl.hu.bep.model.personen.Eigenaar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,9 +9,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EigenaarTest {
     Eigenaar e1;
+    AquariumManager aquaman;
 
     @BeforeEach
     void beforeEach() {
+        aquaman = new AquariumManager("aquaman");
         e1 = new Eigenaar("AquaRuben","1234", "ruben", "van den Brink");
     }
 
@@ -111,5 +114,42 @@ class EigenaarTest {
     @Test
     void setAchternaamCorrectShouldNotThrow() {
         assertDoesNotThrow( () -> e1.setAchternaam("Squarepants"));
+    }
+
+    /**
+     * getAquariumByName tests
+     */
+
+    @Test
+    void getAquariumByNameShouldBeEqual() {
+        Aquarium a1 = new Aquarium("aquawater", 2, 2, 2, "WA", "wad");
+        e1.addAquarium(a1);
+        Aquarium a2 = e1.getAquariumByName("aquawater");
+        assertEquals(a1, a2);
+    }
+
+    @Test
+    void getAquariumByNameShouldBeNotEqual() {
+        Aquarium a1 = new Aquarium("aquawater", 2, 2, 2, "WA", "wad");
+        e1.addAquarium(a1);
+        Aquarium a2 = e1.getAquariumByName("aquawateryeet");
+        assertNotEquals(a1,a2);
+    }
+
+    /**
+     * addAquarium tests
+     */
+
+    @Test
+    void addAquariumShouldBeTrue() {
+        Aquarium a1 = new Aquarium("aquawater", 2, 2, 2, "WA", "wad");
+        assertTrue(e1.addAquarium(a1));
+    }
+
+    @Test
+    void addAquariumAlreadyExistsInEigenAquariaShouldBeFalse() {
+        Aquarium a1 = new Aquarium("aquawater", 2, 2, 2, "WA", "wad");
+        e1.addAquarium(a1);
+        assertFalse(e1.addAquarium(a1));
     }
 }

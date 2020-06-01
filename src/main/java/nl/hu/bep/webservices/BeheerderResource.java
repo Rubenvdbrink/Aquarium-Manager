@@ -21,7 +21,7 @@ public class BeheerderResource {
     @Path("/removeEigenaar")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response removeAquarium(@Context SecurityContext context,
+    public Response removeEigenaar(@Context SecurityContext context,
                                    @FormParam("eigenaarnaam") String naam) {
         try {
             if(naam == null) {
