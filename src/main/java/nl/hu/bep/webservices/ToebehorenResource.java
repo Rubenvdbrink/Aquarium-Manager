@@ -35,6 +35,10 @@ public class ToebehorenResource {
             if (model == null || aquariumnaam == null || serienummer == 0) {
                 throw new IllegalArgumentException("Voer alle velden in!");
             }
+            if (tijdaan < 1 || tijduit < 1) {
+                throw new IllegalArgumentException("Voer positieve tijd waarden in!");
+            }
+
             var user = (MyUser) context.getUserPrincipal();
             boolean isledBool = true;
 
@@ -66,7 +70,7 @@ public class ToebehorenResource {
 
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.CONFLICT).entity(
-                    new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
+                    new AbstractMap.SimpleEntry<>("resultaat", e.getMessage())).build();
         }
         return Response.status(Response.Status.CONFLICT).entity(
                 new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
@@ -114,7 +118,7 @@ public class ToebehorenResource {
 
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.CONFLICT).entity(
-                    new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
+                    new AbstractMap.SimpleEntry<>("resultaat", e.getMessage())).build();
         }
         return Response.status(Response.Status.CONFLICT).entity(
                 new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
@@ -166,7 +170,7 @@ public class ToebehorenResource {
 
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.CONFLICT).entity(
-                    new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
+                    new AbstractMap.SimpleEntry<>("resultaat", e.getMessage())).build();
         }
         return Response.status(Response.Status.CONFLICT).entity(
                 new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();

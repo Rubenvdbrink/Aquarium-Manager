@@ -4,10 +4,13 @@ function addVerlichting() {
 
     fetch("restservices/toebehoren/addVerlichting", {method: 'POST', headers: { 'Authorization': `Bearer ${window.sessionStorage.getItem("myJWT")}` }, body: encData})
         .then(function(response) {
-            if(response.ok) return response.json();
+            if(response.ok) {
+                window.alert("Verlichting succesvol toegevoegd!");
+                return response.json();
+            }
             else throw "kan verlichting niet toevoegen";
         })
-        .catch(console.log);
+        .catch(console.log && window.alert);
 }
 
 document.querySelector("#maakverlichtingaan").addEventListener("click", addVerlichting);
@@ -18,10 +21,13 @@ function addThermostaat() {
 
     fetch("restservices/toebehoren/addThermostaat", {method: 'POST', headers: { 'Authorization': `Bearer ${window.sessionStorage.getItem("myJWT")}` }, body: encData})
         .then(function(response) {
-            if(response.ok) return response.json();
+            if(response.ok) {
+                window.alert("Thermostaat succesvol toegevoegd!");
+                return response.json();
+            }
             else throw "kan thermostaat niet toevoegen";
         })
-        .catch(console.log);
+        .catch(console.log && window.alert);
 }
 
 document.querySelector("#maakthermostaataan").addEventListener("click", addThermostaat);
@@ -32,10 +38,13 @@ function addFilter() {
 
     fetch("restservices/toebehoren/addFilter", {method: 'POST', headers: { 'Authorization': `Bearer ${window.sessionStorage.getItem("myJWT")}` }, body: encData})
         .then(function(response) {
-            if(response.ok) return response.json();
+            if(response.ok) {
+                window.alert("Filter succesvol toegevoegd!");
+                return response.json();
+            }
             else throw "kan filter niet toevoegen";
         })
-        .catch(console.log);
+        .catch(console.log && window.alert);
 }
 
 document.querySelector("#maakfilteraan").addEventListener("click", addFilter);

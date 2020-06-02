@@ -51,6 +51,9 @@ public class AquariumResource {
             if (naam == null || lengte == 0 || breedte == 0 || hoogte == 0 || bodemsoort == null || watersoort == null) {
                 throw new IllegalArgumentException("Voer alle velden in!");
             }
+            if(lengte < 1 || breedte < 1 || hoogte <1) {
+                throw new IllegalArgumentException("Voer positieve lengte/breedte/hoogte waarden in!");
+            }
             var user = (MyUser) context.getUserPrincipal();
             Aquarium a1 = new Aquarium(naam, lengte, breedte, hoogte, bodemsoort, watersoort);
             if (user instanceof Eigenaar) {
@@ -71,7 +74,7 @@ public class AquariumResource {
             }
         } catch(IllegalArgumentException e){
             return Response.status(Response.Status.CONFLICT).entity(
-                    new AbstractMap.SimpleEntry<>("resultaat", "aquarium niet toegevoegd")).build();
+                    new AbstractMap.SimpleEntry<>("resultaat", e.getMessage())).build();
         }
         return Response.status(Response.Status.CONFLICT).entity(
                 new AbstractMap.SimpleEntry<>("resultaat", "aquarium niet toegevoegd")).build();
@@ -104,7 +107,7 @@ public class AquariumResource {
 
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.CONFLICT).entity(
-                    new AbstractMap.SimpleEntry<>("resultaat", "aquarium niet verwijderd")).build();
+                    new AbstractMap.SimpleEntry<>("resultaat", e.getMessage())).build();
         }
         return Response.status(Response.Status.CONFLICT).entity(
                 new AbstractMap.SimpleEntry<>("resultaat", "aquarium niet verwijderd")).build();

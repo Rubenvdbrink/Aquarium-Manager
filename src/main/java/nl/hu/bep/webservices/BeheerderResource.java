@@ -36,7 +36,7 @@ public class BeheerderResource {
                     new AbstractMap.SimpleEntry<>("resultaat", "eigenaar niet verwijderd")).build();
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.CONFLICT).entity(
-                    new AbstractMap.SimpleEntry<>("resultaat", "eigenaar niet verwijderd")).build();
+                    new AbstractMap.SimpleEntry<>("resultaat", e.getMessage())).build();
         }
     }
 }

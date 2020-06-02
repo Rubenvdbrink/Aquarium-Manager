@@ -62,7 +62,7 @@ public class BewonerResource {
             }
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.CONFLICT).entity(
-                    new AbstractMap.SimpleEntry<>("resultaat", "bewoner niet toegevoegd")).build();
+                    new AbstractMap.SimpleEntry<>("resultaat", e.getMessage())).build();
         }
         return Response.status(Response.Status.CONFLICT).entity(
                 new AbstractMap.SimpleEntry<>("resultaat", "bewoner niet toegevoegd")).build();
@@ -110,7 +110,7 @@ public class BewonerResource {
             }
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.CONFLICT).entity(
-                    new AbstractMap.SimpleEntry<>("resultaat", "bewoner niet toegevoegd")).build();
+                    new AbstractMap.SimpleEntry<>("resultaat", e.getMessage())).build();
         }
         return Response.status(Response.Status.CONFLICT).entity(
                 new AbstractMap.SimpleEntry<>("resultaat", "bewoner niet toegevoegd")).build();
@@ -163,7 +163,7 @@ public class BewonerResource {
             }
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.CONFLICT).entity(
-                    new AbstractMap.SimpleEntry<>("resultaat", "bewoner niet toegevoegd")).build();
+                    new AbstractMap.SimpleEntry<>("resultaat", e.getMessage())).build();
         }
         return Response.status(Response.Status.CONFLICT).entity(
                 new AbstractMap.SimpleEntry<>("resultaat", "bewoner niet toegevoegd")).build();
@@ -221,7 +221,7 @@ public class BewonerResource {
             }
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.CONFLICT).entity(
-                    new AbstractMap.SimpleEntry<>("resultaat", "bewoner niet toegevoegd")).build();
+                    new AbstractMap.SimpleEntry<>("resultaat", e.getMessage())).build();
         }
         return Response.status(Response.Status.CONFLICT).entity(
                 new AbstractMap.SimpleEntry<>("resultaat", "bewoner niet toegevoegd")).build();

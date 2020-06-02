@@ -4,11 +4,14 @@ function login() {
 
     fetch("restservices/authentication/login", { method: 'POST', body: encData})
         .then(function(response) {
-            if (response.ok) return response.json();
+            if (response.ok) {
+                window.alert("Succesvol ingelogd!");
+                return response.json();
+            }
             else throw "Wrong username/password";
         })
         .then(myJson => window.sessionStorage.setItem("myJWT", myJson.JWT))
-        .catch(console.log);
+        .catch(console.log && window.alert);
 }
 
 document.querySelector("#login").addEventListener("click", login);
