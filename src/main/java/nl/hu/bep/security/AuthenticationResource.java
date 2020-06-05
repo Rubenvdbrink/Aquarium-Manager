@@ -4,8 +4,11 @@ import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
+import nl.hu.bep.model.AquariumManager;
+import nl.hu.bep.model.aquarium.Aquarium;
 import nl.hu.bep.model.personen.Eigenaar;
 import nl.hu.bep.model.personen.MyUser;
+import nl.hu.bep.webservices.AquariumResource;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -65,6 +68,13 @@ public class AuthenticationResource {
             if (username == null || password == null || voornaam == null || achternaam == null) {
                 throw new IllegalArgumentException("Voer alle velden in!");
             }
+            for (MyUser user : AquariumManager.getAlleEigenaren()) {
+                if (user.getName().equals(username)) {
+                    return Response.status(Response.Status.CONFLICT).entity(
+                            new AbstractMap.SimpleEntry<>("resultaat", "gebruikersnaam bestaat al")).build();
+                }
+            }
+
             new Eigenaar(username,password,voornaam,achternaam);
             String role = MyUser.validateLogin(username, password);
             String token = createToken(username, role);

@@ -8,9 +8,9 @@ function register() {
                 window.alert("Succesvol geregistreerd!");
                 return response.json();
             }
-            else throw "Vul de velden correct in";
+            else throw "Vul de velden correct in / gebruikersnaam bestaat al";
         })
-        .then(MyJson => window.sessionStorage.setItem("myJWT", MyJson.JWT))
+        .then(myJson => window.sessionStorage.setItem("myJWT", myJson.JWT))
         .catch(console.log && window.alert);
 }
 
