@@ -1,5 +1,7 @@
 package nl.hu.bep.model.aquarium;
 
+import nl.hu.bep.model.AquariumManager;
+
 public class Verlichting extends Toebehoren {
     private boolean isLed;
     private int tijdAan;
@@ -14,6 +16,7 @@ public class Verlichting extends Toebehoren {
         this.setLed(isLed);
         this.setTijdAan(tijdAan);
         this.setTijdUit(tijdUit);
+        AquariumManager.getAlleToebehoren().add(this);
     }
 
     /**

@@ -1,5 +1,7 @@
 package nl.hu.bep.model.bewoners;
 
+import nl.hu.bep.model.AquariumManager;
+
 public class Vis extends Bewoner {
     private boolean algEtend;
     private boolean vereistSpeciaalVisVoer;
@@ -12,6 +14,7 @@ public class Vis extends Bewoner {
         super(soortnaam, kleurnaam, aantal, groepsDier);
         this.algEtend = algEtend;
         this.vereistSpeciaalVisVoer = vereistSpeciaalVisVoer;
+        AquariumManager.getAlleBewoners().add(this);
     }
 
     /**

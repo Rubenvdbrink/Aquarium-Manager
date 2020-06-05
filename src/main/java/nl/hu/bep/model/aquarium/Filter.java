@@ -1,5 +1,7 @@
 package nl.hu.bep.model.aquarium;
 
+import nl.hu.bep.model.AquariumManager;
+
 public class Filter extends Toebehoren{
     private boolean isExtern;
     private int aantalLiter;
@@ -12,6 +14,7 @@ public class Filter extends Toebehoren{
         super(model, serienummer);
         this.isExtern = isExtern;
         this.setAantalLiter(aantalLiter);
+        AquariumManager.getAlleToebehoren().add(this);
     }
 
     /**

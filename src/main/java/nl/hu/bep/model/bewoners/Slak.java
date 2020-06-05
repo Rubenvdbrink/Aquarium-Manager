@@ -1,5 +1,7 @@
 package nl.hu.bep.model.bewoners;
 
+import nl.hu.bep.model.AquariumManager;
+
 public class Slak extends Bewoner{
     private boolean slakkenEtend;
 
@@ -10,6 +12,7 @@ public class Slak extends Bewoner{
     public Slak(String soortnaam, String kleurnaam, int aantal, boolean groepsDier, boolean slakkenEtend) {
         super(soortnaam, kleurnaam, aantal, groepsDier);
         this.slakkenEtend = slakkenEtend;
+        AquariumManager.getAlleBewoners().add(this);
     }
 
     /**

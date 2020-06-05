@@ -1,5 +1,7 @@
 package nl.hu.bep.model.aquarium;
 
+import nl.hu.bep.model.AquariumManager;
+
 public class Thermostaat extends Toebehoren{
     private int minTemp;
     private int maxTemp;
@@ -19,6 +21,7 @@ public class Thermostaat extends Toebehoren{
         this.setMinTemp(minTemp);
         this.setMaxTemp(maxTemp);
         this.setHuidigeTempIngesteld(huidigeTempIngesteld);
+        AquariumManager.getAlleToebehoren().add(this);
     }
 
     /**
