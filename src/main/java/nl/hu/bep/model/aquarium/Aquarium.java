@@ -2,8 +2,6 @@ package nl.hu.bep.model.aquarium;
 
 import nl.hu.bep.model.AquariumManager;
 import nl.hu.bep.model.bewoners.Bewoner;
-import nl.hu.bep.model.bewoners.Slak;
-import nl.hu.bep.model.bewoners.Vis;
 
 import java.util.ArrayList;
 

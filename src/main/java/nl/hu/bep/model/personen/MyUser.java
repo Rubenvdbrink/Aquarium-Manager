@@ -12,6 +12,10 @@ public abstract class MyUser implements Principal {
     private String plainpassword;
     private String role;
 
+    /**
+     * Constructors
+     */
+
     public MyUser(String username, String plainpassword) {
         this.username = username;
         this.plainpassword = plainpassword;
@@ -20,6 +24,10 @@ public abstract class MyUser implements Principal {
             allMyUsers.add(this);
         }
     }
+
+    /**
+     * Getters and setters
+     */
 
     public void setAdmin() {
         this.role = "admin";

@@ -5,10 +5,8 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
 import nl.hu.bep.model.AquariumManager;
-import nl.hu.bep.model.aquarium.Aquarium;
 import nl.hu.bep.model.personen.Eigenaar;
 import nl.hu.bep.model.personen.MyUser;
-import nl.hu.bep.webservices.AquariumResource;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

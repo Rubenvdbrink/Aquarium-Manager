@@ -35,6 +35,8 @@ public class ToebehorenResource {
             if (model == null || aquariumnaam == null || serienummer == 0) {
                 throw new IllegalArgumentException("Voer alle velden in!");
             }
+            aquariumnaam = aquariumnaam.toLowerCase();
+            model = model.toLowerCase();
             if (tijdaan < 1 || tijduit < 1) {
                 throw new IllegalArgumentException("Voer positieve tijd waarden in!");
             }
@@ -54,8 +56,7 @@ public class ToebehorenResource {
                 if(a1.addToebehoren(v1)) {
                     return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "toebehoren toegevoegd!")).build();
                 }
-                return Response.status(Response.Status.CONFLICT).entity(
-                        new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
+                throw new IllegalArgumentException();
             }
 
             else if(user instanceof Beheerder) {
@@ -64,8 +65,7 @@ public class ToebehorenResource {
                 if(a1.addToebehoren(v1)) {
                     return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "toebehoren toegevoegd!")).build();
                 }
-                return Response.status(Response.Status.CONFLICT).entity(
-                        new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
+                throw new IllegalArgumentException();
             }
 
         } catch (IllegalArgumentException e) {
@@ -92,6 +92,8 @@ public class ToebehorenResource {
             if (model == null || aquariumnaam == null || serienummer == 0) {
                 throw new IllegalArgumentException("Voer alle velden in!");
             }
+            aquariumnaam = aquariumnaam.toLowerCase();
+            model = model.toLowerCase();
             var user = (MyUser) context.getUserPrincipal();
 
             Thermostaat t1 = new Thermostaat(model, serienummer, mintemp, maxtemp, huidigetemp);
@@ -102,8 +104,7 @@ public class ToebehorenResource {
                 if(a1.addToebehoren(t1)) {
                     return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "toebehoren toegevoegd!")).build();
                 }
-                return Response.status(Response.Status.CONFLICT).entity(
-                        new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
+                throw new IllegalArgumentException();
             }
 
             else if(user instanceof Beheerder) {
@@ -112,8 +113,7 @@ public class ToebehorenResource {
                 if(a1.addToebehoren(t1)) {
                     return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "toebehoren toegevoegd!")).build();
                 }
-                return Response.status(Response.Status.CONFLICT).entity(
-                        new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
+                throw new IllegalArgumentException();
             }
 
         } catch (IllegalArgumentException e) {
@@ -139,6 +139,8 @@ public class ToebehorenResource {
             if (model == null || aquariumnaam == null || serienummer == 0 || aantalliter == 0) {
                 throw new IllegalArgumentException("Voer alle velden in!");
             }
+            aquariumnaam = aquariumnaam.toLowerCase();
+            model = model.toLowerCase();
             var user = (MyUser) context.getUserPrincipal();
             boolean isexternBool = true;
 
@@ -154,8 +156,7 @@ public class ToebehorenResource {
                 if(a1.addToebehoren(f1)) {
                     return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "toebehoren toegevoegd!")).build();
                 }
-                return Response.status(Response.Status.CONFLICT).entity(
-                        new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
+                throw new IllegalArgumentException();
             }
 
             else if(user instanceof Beheerder) {
@@ -164,8 +165,7 @@ public class ToebehorenResource {
                 if(a1.addToebehoren(f1)) {
                     return Response.ok(new AbstractMap.SimpleEntry<>("resultaat", "toebehoren toegevoegd!")).build();
                 }
-                return Response.status(Response.Status.CONFLICT).entity(
-                        new AbstractMap.SimpleEntry<>("resultaat", "toebehoren niet toegevoegd")).build();
+                throw new IllegalArgumentException();
             }
 
         } catch (IllegalArgumentException e) {

@@ -35,6 +35,10 @@ public class BewonerResource {
             if (aquariumnaam == null || soortnaam == null || kleurnaam == null) {
                 throw new IllegalArgumentException("Voer alle velden in!");
             }
+            aquariumnaam = aquariumnaam.toLowerCase();
+            soortnaam = soortnaam.toLowerCase();
+            kleurnaam = kleurnaam.toLowerCase();
+
             var user = (MyUser) context.getUserPrincipal();
 
             boolean groepsdierBool = true;
@@ -83,6 +87,10 @@ public class BewonerResource {
             if (aquariumnaam == null || soortnaam == null || kleurnaam == null) {
                 throw new IllegalArgumentException("Voer alle velden in!");
             }
+            aquariumnaam = aquariumnaam.toLowerCase();
+            soortnaam = soortnaam.toLowerCase();
+            kleurnaam = kleurnaam.toLowerCase();
+
             var user = (MyUser) context.getUserPrincipal();
 
             boolean groepsdierBool = true;
@@ -132,6 +140,10 @@ public class BewonerResource {
             if (aquariumnaam == null || soortnaam == null || kleurnaam == null) {
                 throw new IllegalArgumentException("Voer alle velden in!");
             }
+            aquariumnaam = aquariumnaam.toLowerCase();
+            soortnaam = soortnaam.toLowerCase();
+            kleurnaam = kleurnaam.toLowerCase();
+
             var user = (MyUser) context.getUserPrincipal();
 
             boolean groepsdierBool = true;
@@ -186,6 +198,9 @@ public class BewonerResource {
             if (aquariumnaam == null || soortnaam == null || kleurnaam == null) {
                 throw new IllegalArgumentException("Voer alle velden in!");
             }
+            aquariumnaam = aquariumnaam.toLowerCase();
+            soortnaam = soortnaam.toLowerCase();
+            kleurnaam = kleurnaam.toLowerCase();
             var user = (MyUser) context.getUserPrincipal();
 
             boolean groepsdierBool = true;

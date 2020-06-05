@@ -51,6 +51,9 @@ public class AquariumResource {
             if (naam == null || lengte == 0 || breedte == 0 || hoogte == 0 || bodemsoort == null || watersoort == null) {
                 throw new IllegalArgumentException("Voer alle velden in!");
             }
+            naam = naam.toLowerCase();
+            bodemsoort = bodemsoort.toLowerCase();
+            watersoort = watersoort.toLowerCase();
             if(lengte < 1 || breedte < 1 || hoogte <1) {
                 throw new IllegalArgumentException("Voer positieve lengte/breedte/hoogte waarden in!");
             }
@@ -88,9 +91,10 @@ public class AquariumResource {
     public Response removeAquarium(@Context SecurityContext context,
                                    @FormParam("naam") String naam) {
         try {
-        if(naam == null) {
+        if(naam == null || naam.isEmpty() || naam.isBlank()) {
             throw new IllegalArgumentException("Voer alle velden in!");
         }
+        naam = naam.toLowerCase();
             var user = (MyUser) context.getUserPrincipal();
 
         if (user instanceof Eigenaar) {

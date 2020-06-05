@@ -23,20 +23,20 @@ public class MyContextListener implements ServletContextListener {
         Eigenaar e1 = new Eigenaar("AquaRuben","1234", "ruben", "van den Brink");
         Beheerder b1 = new Beheerder("AquaAdmin", "1234", "henk", "tenk");
 
-        Aquarium a1 = new Aquarium("Bikini Bottom", 50, 50, 50, "zand", "zout");
-        Aquarium a2 = new Aquarium("Admin Aqua", 100, 40, 50, "steen", "brak");
-        Aquarium a3 = new Aquarium("WaterWorld", 200, 200, 100, "zand", "zout");
+        Aquarium a1 = new Aquarium("bikini bottom", 50, 50, 50, "zand", "zout");
+        Aquarium a2 = new Aquarium("admin aqua", 100, 40, 50, "steen", "brak");
+        Aquarium a3 = new Aquarium("waterworld", 200, 200, 100, "zand", "zout");
 
-        Garnaal g1 = new Garnaal("Malacostraca", "oranje", 5, false);
-        Vis v1 = new Vis("Guppy", "blauw", 10, true, false, true);
-        Slak s1 = new Slak("Poelslak", "bruin", 3, false, true);
-        Kreeft k1 = new Kreeft("Rivierkreeft", "rood", 4, true);
+        Garnaal g1 = new Garnaal("malacostraca", "oranje", 5, false);
+        Vis v1 = new Vis("guppy", "blauw", 10, true, false, true);
+        Slak s1 = new Slak("poelslak", "bruin", 3, false, true);
+        Kreeft k1 = new Kreeft("rivierkreeft", "rood", 4, true);
 
-        Filter f1 = new Filter("Aquaclean", 9834872, false, 120);
-        Thermostaat t1 = new Thermostaat("YeetHeat", 1293519, 10,50,28);
-        Verlichting ve1 = new Verlichting("LightUp", 2930492, true, 100, 90);
+        Filter f1 = new Filter("aquaclean", 9834872, false, 120);
+        Thermostaat t1 = new Thermostaat("yeetheat", 1293519, 10,50,28);
+        Verlichting ve1 = new Verlichting("lightup", 2930492, true, 100, 90);
 
-        Ornament o1 = new Ornament("Spongebob's Huis", "Ananas diep in de zee", "Oranje", true);
+        Ornament o1 = new Ornament("spongebob's huis", "ananas diep in de zee", "oranje", true);
 
         a1.addBewoner(g1);
         a1.addBewoner(s1);

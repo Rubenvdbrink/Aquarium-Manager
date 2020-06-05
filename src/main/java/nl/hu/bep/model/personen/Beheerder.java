@@ -4,6 +4,10 @@ import nl.hu.bep.model.AquariumManager;
 
 public class Beheerder extends Eigenaar {
 
+    /**
+     * Constructors
+     */
+
     public Beheerder(String username, String plainpassword, String voornaam, String achternaam) {
         super(username, plainpassword, voornaam, achternaam);
         this.setAdmin();

@@ -12,11 +12,9 @@ public class Thermostaat extends Toebehoren{
     public Thermostaat(String model, int serienummer, int minTemp, int maxTemp, int huidigeTempIngesteld) {
         super(model, serienummer);
 
-        //sets the temps temporarily so the setters can do checks on the temp
         this.minTemp = minTemp;
         this.maxTemp = maxTemp;
         this.huidigeTempIngesteld = huidigeTempIngesteld;
-        //-------------------------------------------------------------------
 
         this.setMinTemp(minTemp);
         this.setMaxTemp(maxTemp);

@@ -1,8 +1,6 @@
 package nl.hu.bep.webservices;
 
-import nl.hu.bep.model.AquariumManager;
 import nl.hu.bep.model.personen.Beheerder;
-import nl.hu.bep.model.personen.Eigenaar;
 import nl.hu.bep.model.personen.MyUser;
 
 import javax.annotation.security.RolesAllowed;

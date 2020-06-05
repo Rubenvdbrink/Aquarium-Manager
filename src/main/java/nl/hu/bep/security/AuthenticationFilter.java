@@ -23,22 +23,16 @@ public class AuthenticationFilter implements ContainerRequestFilter {
     public void filter(ContainerRequestContext requestCtx) {
         boolean isSecure = requestCtx.getSecurityContext().isSecure();
         String scheme = requestCtx.getUriInfo().getRequestUri().getScheme();
-//        System.out.println("Scheme: " + scheme);
-
         MySecurityContext msc = new MySecurityContext(null, scheme);
         String authHeader = requestCtx.getHeaderString(HttpHeaders.AUTHORIZATION);
-//        System.out.println("authheader: " + authHeader);
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             String token = authHeader.substring("Bearer".length()).trim();
-
-//            System.out.println("Token: " + token);
 
             try {
                 JwtParser parser = Jwts.parser().setSigningKey(AuthenticationResource.key);
                 Claims claims = parser.parseClaimsJws(token).getBody();
 
                 String user = claims.getSubject();
-//                System.out.println("User:" + user);
                 msc = new MySecurityContext(MyUser.getUserByUsername(user), scheme);
             } catch (JwtException | IllegalArgumentException e) {
                 System.out.println("Invalid JWT, processing as guest!");
